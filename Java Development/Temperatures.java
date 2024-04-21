@@ -1,14 +1,4 @@
-/*
-Student ID: 22065462
-Name: Bora Durdag
-Campus: Sydney City
-Tutor Name: Christopher Stanton
-Class Day: Thursday
-Class Time: 10:30AM - 12:30PM
-*/
-
 import java.util.Scanner;
-
 public class Temperatures {
 
   static Scanner kb = new Scanner(System.in);
