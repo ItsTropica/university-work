@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <!-- linking css and js to hmtl doc -->
+    <link rel="stylesheet" href="week5Styles.css">
+    <script src = "week5validation.js"></script>
+    <!-- linking google fonts below -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Patient Registration Form</title>
+
+    <h1>Generic Hospital<br> Admission Page</h1>
+</head>
+<!-- on pressing submit button it takes you to the link below to test -->
+<form name = "hospitalForm" action = "https://twaaut.cdms.westernsydney.edu.au/twainfo/form.asp" method = "post" onsubmit = "return validateForm()">
+    <h1>Patient Details</h1>
+    <!-- below is the title selection radio boxes -->
+    <p>Title:<br>
+        <label for = "mr">Mr.</label>
+        <input type = "radio" id = "titleCheck" name = "mr" value = "mr">
+        <label for = "mrs">Mrs.</label>
+        <input type = "radio" id = "titleCheck" name = "mrs" value = "mrs">
+        <label for = "miss">Miss.</label>
+        <input type = "radio" id = "titleCheck" name = "miss" value = "miss">
+        <label for = "ms">Ms.</label>
+        <input type = "radio" id = "titleCheck" name = "ms" value = "ms">
+        <label for = "other">Other:</label>
+        <input type = "text" id = "titleCheck" name = "other" value = "">
+        <span id="titleError"></span>
+    </p>
+    <p>
+    <!-- first name input field -->
+        <label for = "fname">First Name:</label>
+        <input type = "text" id = "fname" name = "fname" value = "" onblur="checkEmptyInput(this);">
+        <span id="fnameError"></span>
+    </p>
+    <p>
+    <!-- surname input field -->
+        <label for = "sname">Surname Name:</label>
+        <input type = "text" id = "sname" name = "sname" value = "" onblur="checkEmptyInput(this);">
+        <span id="snameError"></span>
+    </p>
+    <p>
+    <!-- date of birth selection area -->
+        <label for = "dob">Date of Birth</label>
+        <input type = "date" id = "dob" name = "dob" value = "" onblur="checkEmptyInput(this);">
+        <span id="dobError"></span>
+    </p>
+    <p>Gender:
+    <!-- gender radio boxes -->
+        <label for = "male">Male</label>
+        <input type = "radio" id = "male" name = "male" value = "male" value = "">
+        <label for = "female">Female</label>
+        <input type = "radio" id = "female" name = "female" value = "female" value = "">
+        <label for = "other">Other:</label>
+        <input type = "text" id = "other" name = "other" value = "">
+    </p>
+    <p>
+    <!-- birth place input field -->
+        <label for = "birthPlace">Place of Birth</label>
+        <input type = "text" id = "birthPlace" name = "birthPlace" placeholder = "e.g. Sydney Australia" value = "" onblur="checkEmptyInput(this);">
+        <span id="birthPlaceError"></span>
+    </p>
+    <p>Martial Status:<br>
+    <!-- martial status radio boxes -->
+        <label for = "married">Married</label>
+        <input type = "radio" id = "married" name = "title" value = "married">
+        <label for = "single">Single</label>
+        <input type = "radio" id = "single" name = "title" value = "single">
+        <label for = "widowed">Widowed</label>
+        <input type = "radio" id = "widowed" name = "title" value = "widowed">
+        <label for = "separated">Seprated</label>
+        <input type = "radio" id = "Separated" name = "title" value = "Separated">
+        <label for = "divorced">Divorced</label>
+        <input type = "radio" id = "Divorced" name = "title" value = "Divorced">
+    </p>
+    <p>
+    <!-- ethnicity input field -->
+        <label for = "ethnicity">What is your Ethnicity</label>
+        <input type = "text" id = "ethnicity" name = "ethnicity" value = "">
+    </p>
+    <p>Are you Aboriginal/Torres Strait Islander?
+    <!-- aboriginal radio boxes -->
+        <label for = "yes">Yes</label>
+        <input type = "radio" id = "yes" name = "title" value = "yes">
+        <label for = "no">No</label>
+        <input type = "radio" id = "no" name = "title" value = "no">
+    </p>
+    <p>
+    <!-- first address input field -->
+        <label for = "address1">Address:</label>
+        <input type = "text" id = "address1" name = "address1" value = "" onblur="checkEmptyInput(this);">
+        <span id="addressError"></span>
+    </p>
+    <p>
+    <!-- postcode input field -->
+        <label for = "postcode">Postcode:</label>
+        <input type = "text" id = "postcode" name = "postcode" value = "" onblur="checkEmptyInput(this);">
+        <span id="postcodeError"></span>
+    </p>
+
+    <!-- for both hphone and pphone i used w3schools to make sure the inputted number is 10digits: https://www.w3schools.com/tags/att_input_type_tel.asp -->
+    <p>
+    <!-- home phone input field -->
+        <label for = "hphone">Home Phone Number:</label>
+        <input type = "tel" id ="hphone" name = "hphone"  value = "" onblur="checkEmptyInput(this);">
+        <span id="hphoneError"></span>
+    </p>
+    <p>
+    <!-- personal phone input field -->
+        <label for = "pphone">Personal Phone Number:</label>
+        <input type = "tel" id = "pphone" name= "pphone"  value = "" onblur="checkEmptyInput(this);">
+        <span id="pphoneError"></span>
+    </p>
+
+    <h1>Next point of contact</h1>
+    <p>
+    <!-- next person of contact name input field -->
+        <label for = "name">Name:</label>
+        <input type = "text" id = "name" name = "name" value = "">
+    </p>
+    <p>
+    <!-- next person of contact address input field -->
+        <label for = "address2">Address:</label>
+        <input type = "text" id = "addres2s" name = "address2" value = "">
+    </p>
+    <!-- next person of contact home phone input field -->
+        <label for="hphone2">Home Phone Number:</label>
+        <input type = "tel" id ="hphone2" name = "hphone2" pattern="[0-9]{9}" placeholder = "e.g .012345678" value = "">
+    </p>
+    <p>
+    <!-- next person of contact personal phone input field -->
+        <label for="pphone2">Personal Phone Number:</label>
+        <input type = "tel" id = "pphone2" name= "pphone2" pattern="[0-9]{9}" placeholder = "e.g .012345678" value = "">
+    </p>
+    <p>
+    <!-- next person of contact relationship to the patient -->
+        <label for = "relPatient">Relationship to Patient:</label>
+        <input type = "text" id = "relPatient" name = "relPatient" value = "">
+    </p>
+    <p>
+    <!-- medicare number input field -->
+        <label for = "medicare">Medicare Number:</label>
+        <input type = "number" id="medicare" name="medicare" value = "" placeholder = "e.g 012345678901" onblur="checkEmptyInput(this);">
+        <span id = medicareError></span>
+    </p>
+    <p>
+    <!-- medicare id input field -->
+        <label for = "medicareId">Medicare Card I.D. Number:</label>
+        <input type = "number" id="medicareId" name="medicareId" value = "" onblur="checkEmptyInput(this);">
+        <span id = medicareIdError></span>
+    </p>
+    <p>
+    <!-- medicare expiry date input field -->
+        <label for = "medicareExpiry">Medicare Card Expiry Date</label>
+        <input type = "month" id = "medicareExpiry" name = "medicareExpiry" value = "">
+    </p>
+    <p>
+    <!-- submit form button -->
+        <input type = "submit" value = "Submit">
+    </p>
+</form>
+</html>
